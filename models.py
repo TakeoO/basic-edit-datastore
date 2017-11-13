@@ -1,5 +1,6 @@
 from google.appengine.ext import ndb
 
-class Sporocilo(ndb.Model):
-    vnos = ndb.StringProperty()
+
+class Message(ndb.Model):
+    name = ndb.StringProperty()
     description = ndb.StringProperty()

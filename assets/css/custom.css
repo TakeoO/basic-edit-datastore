@@ -1,0 +1,28 @@
+.submit-button{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 24px;
+    text-transform: uppercase;
+}
+
+.form-panel input, .form-panel textarea, .form-panel button {
+    height: 40px;
+}
+
+
+table thead th:last-child{
+    width: 101px;
+}
+
+tbody {
+    counter-reset: row-num;
+}
+
+tbody tr  {
+    counter-increment: row-num;
+}
+
+tbody tr td:first-child::before {
+    content: "#" counter(row-num) ;
+}

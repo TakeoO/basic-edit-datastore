@@ -6,32 +6,59 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 
 <body>
-<form action="/rezultat" method="post">
-    <input name="vnos">
-    <textarea name="description"></textarea>
-    <button type="submit">OK</button>
-</form>
-</body>
 
-<table id="sporocila">
-    <thead>
-    <tr>
-        <td>#</td>
-        <td>Entry</td>
-        <td>Description</td>
-    </tr>
-    </thead>
-    <tbody>
-    {% for vnos in seznam %}
-    <tr>
-        <td>1</td>
-        <td>{{ vnos["vnos"] }}</td>
-        <td>{{ vnos["description"] }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="container">
+    <div class="panel panel-danger form-panel">
+        <div class="panel-heading col-lg-12">
+            <form action="/result" method="post">
+                <div class="form-group col-md-5">
+
+                    <label for="name">Name</label>
+                    <input id="name" name="name" class="form-control">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" class="form-control"></textarea>
+                </div>
+                <div class="pull-right col-md-2">
+                    <button type="submit" class="btn btn-success submit-button">Save</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="panel-body">
+            <h1 class="title">Data <small>test</small></h1>
+            <table id="messages" class="col-md-12 table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Entry</th>
+                    <th>Description</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                <tr>
+                    <td></td>
+                    <td>{{ message["name"] }}</td>
+                    <td>{{ message["description"] }}</td>
+                    <td>
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></button>
+                        <button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">Count: {{ found }}</div>
+    </div>
+</div>
+</body>
 </html>
