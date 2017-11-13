@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>SmartNinja basic Jinja template</title>
+</head>
+
+<body>
+<form action="/rezultat" method="post">
+    <input name="vnos">
+    <textarea name="description"></textarea>
+    <button type="submit">OK</button>
+</form>
+</body>
+
+<table id="sporocila">
+    <thead>
+    <tr>
+        <td>#</td>
+        <td>vnos</td>
+        <td>description</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for vnos in seznam %}
+    <tr>
+        <td>1</td>
+        <td>{{ vnos["vnos"] }}</td>
+        <td>{{ vnos["description"] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</html>
